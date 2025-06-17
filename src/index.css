@@ -1,8 +1,13 @@
 /* index.css（シンプルな初期化 + 自分のスタイル） */
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
   min-height: 100vh;
   background-color: #00acc1; /* Morse Mania風の青 */
   font-family: Arial, sans-serif;
