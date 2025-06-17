@@ -17,7 +17,7 @@ function shuffle<T>(array: T[]): T[] {
 
 const KanaQuiz = () => {
   const [input, setInput] = useState('');
-  const [correctCount, setCorrectCount] = useState(0);
+  // const [correctCount, setCorrectCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [display, setDisplay] = useState('?');
   const [answer, setAnswer] = useState('');
@@ -38,7 +38,7 @@ const KanaQuiz = () => {
   const start = async () => {
     shuffledRef.current = shuffle(flatLetters);
     currentIndexRef.current = 0;
-    setCorrectCount(0);
+    // setCorrectCount(0);
     setInput('');
     setIsStarted(true);
     setDisplay('?');
@@ -61,7 +61,7 @@ const KanaQuiz = () => {
     if (isCorrect(input, answer)) {
       setDisplay('💮');
       currentIndexRef.current += 1;
-      setCorrectCount((prev) => prev + 1);
+      // setCorrectCount((prev) => prev + 1);
       setTimeout(() => {
         nextQuestion();
       }, 1500);
