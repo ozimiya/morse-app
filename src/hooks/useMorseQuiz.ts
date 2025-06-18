@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { playMorse } from '../utils/playMorse';
+import { playMorse, stopMorse } from '../utils/playMorse';
 
 type Options = {
   getWpm?: () => number;
@@ -10,10 +10,11 @@ export function useMorseQuiz(items: string[], options?: Options) {
   const [answer, setAnswer] = useState('');
   const [display, setDisplay] = useState('?');
 
-  const getWpm = options?.getWpm ?? (() => 12); // デフォルト12WPM
+  const getWpm = options?.getWpm ?? (() => 12);
   const isCorrect = options?.isCorrect ?? ((input, ans) => input === ans);
 
   const start = async () => {
+    stopMorse();
     const next = items[Math.floor(Math.random() * items.length)];
     setAnswer(next);
     setDisplay('?');
@@ -21,6 +22,7 @@ export function useMorseQuiz(items: string[], options?: Options) {
   };
 
   const check = async (input: string) => {
+    stopMorse();
     if (isCorrect(input, answer)) {
       setDisplay('💮');
       setTimeout(() => {
@@ -31,9 +33,9 @@ export function useMorseQuiz(items: string[], options?: Options) {
       setTimeout(() => {
         setDisplay('?');
         playMorse(answer, getWpm());
-      }, 1500);
+      }, 2000);
     }
   };
 
-  return { display, answer, start, check };
+  return { display, answer, start, check, setDisplay };
 }

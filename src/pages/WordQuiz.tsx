@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as Tone from 'tone'; // ←これを追加！
+import * as Tone from 'tone';
 import { WORDS } from '../data/words';
 import { useSettings } from '../context/SettingsContext';
 import { sanitize } from '../utils/sanitize';
@@ -28,7 +28,7 @@ const WordQuiz = () => {
     return toCodePoints(a) === toCodePoints(b);
   };
 
-  const { answer, display, start, check } = useMorseQuiz(filteredWords, {
+  const { answer, display, start, check, setDisplay } = useMorseQuiz(filteredWords, {
     getWpm: () => playbackSpeed,
     isCorrect,
   });
@@ -41,20 +41,6 @@ const WordQuiz = () => {
     }
   }, [lengthFilter, filteredWords]);
 
-  useEffect(() => {
-  const handler = () => {
-    if (Tone.context.state !== 'running') {
-      Tone.start();
-    }
-  };
-
-  document.body.addEventListener('click', handler, { once: true });
-
-  return () => {
-    document.body.removeEventListener('click', handler);
-  };
-}, []);
-
   const handleStart = async () => {
     await Tone.start();
     setIsStarted(true);
@@ -65,40 +51,38 @@ const WordQuiz = () => {
   const handleCheck = () => {
     check(input);
     if (isCorrect(input, answer)) {
-      setCorrectCount((prev) => prev + 1);
-      if (correctCount + 1 >= 10) {
-        setIsStarted(false);
-        setCorrectCount(0);
-      }
+      setCorrectCount((prev) => {
+        const next = prev + 1;
+        if (next >= 10) {
+          setIsStarted(false);
+          return 0;
+        }
+        return next;
+      });
     }
+    setInput('');
   };
 
   const handleReplay = () => {
-    if (answer) {
-      import('../utils/playMorse').then(({ playMorse }) => {
-        playMorse(answer, playbackSpeed);
-      });
-    }
+    import('../utils/playMorse').then(({ playMorse }) => {
+      playMorse(answer, playbackSpeed);
+    });
   };
 
-  const showAnswer = () => {
-    setFeedback(answer);
+  const handleShowAnswer = () => {
+    setDisplay(answer);
   };
 
   return (
     <div className="quiz-container">
       {!isStarted && (
-        <button onClick={async () => {
-            await Tone.start();
-            handleStart();
-          }} className="button-primary">開始</button>
+        <button onClick={handleStart} className="button-primary">開始</button>
       )}
       {isStarted && (
         <button onClick={handleReplay} className="button-primary">再打電</button>
       )}
 
-      {/* <div className="question-display">{display}</div> */}
-      <div className="feedback">{feedback}</div>
+      <div className="question-display">{display}</div>
 
       <input
         type="text"
@@ -109,12 +93,16 @@ const WordQuiz = () => {
       />
 
       <div className="button-group">
-        {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
-        {isStarted && (<button onClick={handleCheck} className="button-primary">決定</button>)}
+        {isStarted && (
+          <>
+            <button onClick={handleShowAnswer} className="button-secondary">答え</button>
+            <button onClick={handleCheck} className="button-primary">決定</button>
+          </>
+        )}
       </div>
-      <p>ver1</p>
+
+      <div className="feedback">{feedback}</div>
     </div>
-    
   );
 };
 
