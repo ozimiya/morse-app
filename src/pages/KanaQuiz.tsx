@@ -102,7 +102,10 @@ const KanaQuiz = () => {
   return (
     <div className="quiz-container">
       {!isStarted && (
-        <button onClick={start} className="button-primary">開始</button>
+        <button onClick={async () => {
+          await Tone.start(); // iPhoneで確実に音出すための直コール
+          start();             // ←もともとの処理
+        }} className="button-primary">開始</button>
       )}
       {isStarted && (
         <button onClick={handleReplay} className="button-primary">再打電</button>

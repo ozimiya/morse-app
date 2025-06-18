@@ -88,7 +88,10 @@ const WordQuiz = () => {
   return (
     <div className="quiz-container">
       {!isStarted && (
-        <button onClick={handleStart} className="button-primary">開始</button>
+        <button onClick={async () => {
+            await Tone.start();
+            handleStart();
+          }} className="button-primary">開始</button>
       )}
       {isStarted && (
         <button onClick={handleReplay} className="button-primary">再打電</button>
