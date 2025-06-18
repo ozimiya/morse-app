@@ -112,7 +112,9 @@ const WordQuiz = () => {
         {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
         {isStarted && (<button onClick={handleCheck} className="button-primary">決定</button>)}
       </div>
+      <p>ver1</p>
     </div>
+    
   );
 };
 
