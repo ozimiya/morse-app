@@ -4,6 +4,7 @@ import { playMorse } from '../utils/playMorse';
 import { sanitize } from '../utils/sanitize';
 import { hiraToKata } from '../utils/kana';
 import { useSettings } from '../context/SettingsContext';
+import '../styles/components.css';
 import './KanaQuiz.css';
 
 function shuffle<T>(array: T[]): T[] {
@@ -17,7 +18,6 @@ function shuffle<T>(array: T[]): T[] {
 
 const KanaQuiz = () => {
   const [input, setInput] = useState('');
-  // const [correctCount, setCorrectCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [display, setDisplay] = useState('?');
   const [answer, setAnswer] = useState('');
@@ -38,7 +38,6 @@ const KanaQuiz = () => {
   const start = async () => {
     shuffledRef.current = shuffle(flatLetters);
     currentIndexRef.current = 0;
-    // setCorrectCount(0);
     setInput('');
     setIsStarted(true);
     setDisplay('?');
@@ -61,7 +60,6 @@ const KanaQuiz = () => {
     if (isCorrect(input, answer)) {
       setDisplay('💮');
       currentIndexRef.current += 1;
-      // setCorrectCount((prev) => prev + 1);
       setTimeout(() => {
         nextQuestion();
       }, 1500);
@@ -79,6 +77,10 @@ const KanaQuiz = () => {
     if (answer) {
       playMorse(answer, playbackSpeed);
     }
+  };
+
+  const showAnswer = () => {
+    setDisplay(answer);
   };
 
   return (
@@ -100,8 +102,9 @@ const KanaQuiz = () => {
         className="text-input"
       />
 
-      <div style={{ marginTop: '0.5rem' }}>
-        <button onClick={() => check(input)} className="button-primary">決定</button>
+      <div className="button-group">
+        {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
+        {isStarted && (<button onClick={() => check(input)} className="button-primary">決定</button>)}
       </div>
     </div>
   );

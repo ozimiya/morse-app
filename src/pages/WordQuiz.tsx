@@ -4,6 +4,7 @@ import { useSettings } from '../context/SettingsContext';
 import { sanitize } from '../utils/sanitize';
 import { hiraToKata } from '../utils/kana';
 import { useMorseQuiz } from '../hooks/useMorseQuiz';
+import '../styles/components.css';
 import './WordQuiz.css';
 
 const WordQuiz = () => {
@@ -62,8 +63,11 @@ const WordQuiz = () => {
         playMorse(answer, playbackSpeed);
       });
     }
-  }
+  };
 
+  const showAnswer = () => {
+    setFeedback(answer);
+  };
 
   return (
     <div className="quiz-container">
@@ -74,7 +78,8 @@ const WordQuiz = () => {
         <button onClick={handleReplay} className="button-primary">再打電</button>
       )}
 
-      <div className="question-display">{display}</div>
+      {/* <div className="question-display">{display}</div> */}
+      <div className="feedback">{feedback}</div>
 
       <input
         type="text"
@@ -84,11 +89,10 @@ const WordQuiz = () => {
         className="text-input"
       />
 
-      <div style={{ marginTop: '0.5rem' }}>
-        <button onClick={handleCheck} className="button-primary">決定</button>
+      <div className="button-group">
+        {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
+        {isStarted && (<button onClick={handleCheck} className="button-primary">決定</button>)}
       </div>
-
-      <div className="feedback">{feedback}</div>
     </div>
   );
 };

@@ -13,13 +13,6 @@
     margin-bottom: 1rem;
   }
   
-  .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
   .answer-button {
     padding: 0.5rem 1rem;
     font-size: 1.1rem;
@@ -41,23 +34,8 @@
   
   .feedback {
     margin-top: 1rem;
-    font-size: 1.2rem;
+    font-size:3rem;
     color: #fff;
-  }
-  .button-primary {
-    background-color: #aed581;
-    color: white;
-    font-size: 1.2rem;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 1.5rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .button-primary:hover {
-    background-color: #9ccc65;
   }
   
   .text-input {
@@ -70,14 +48,8 @@
     border: 1px solid #ccc;
   }
   
-  .feedback {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    color: white;
-  }
-  
   .question-display {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 2rem 0;
     color: white;
   }
