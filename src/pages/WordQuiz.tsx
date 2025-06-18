@@ -13,7 +13,7 @@ const WordQuiz = () => {
   const [input, setInput] = useState('');
   const [feedback, setFeedback] = useState('');
   const [isStarted, setIsStarted] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
+  const [_correctCount, setCorrectCount] = useState(0);
 
   const filteredWords = lengthFilter > 0
     ? WORDS.filter((w) => w.length === lengthFilter)
@@ -45,6 +45,7 @@ const WordQuiz = () => {
     await Tone.start();
     setIsStarted(true);
     setCorrectCount(0);
+    setDisplay('?');
     await start();
   };
 
@@ -55,6 +56,7 @@ const WordQuiz = () => {
         const next = prev + 1;
         if (next >= 10) {
           setIsStarted(false);
+          setDisplay('完遂セリ');
           return 0;
         }
         return next;
