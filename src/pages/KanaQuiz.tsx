@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import * as Tone from 'tone';
 import { LETTERS } from '../data/letters';
 import { playMorse } from '../utils/playMorse';
 import { sanitize } from '../utils/sanitize';
@@ -26,6 +27,20 @@ const KanaQuiz = () => {
   const currentIndexRef = useRef(0);
   const flatLetters = LETTERS.flat();
 
+  useEffect(() => {
+    const handler = () => {
+      if (Tone.context.state !== 'running') {
+        Tone.start();
+      }
+    };
+  
+    document.body.addEventListener('click', handler, { once: true });
+  
+    return () => {
+      document.body.removeEventListener('click', handler);
+    };
+  }, []);
+
   const toCodePoints = (str: string): string =>
     Array.from(str.normalize('NFD')).map((c) => c.codePointAt(0)).join('-');
 
@@ -36,6 +51,7 @@ const KanaQuiz = () => {
   };
 
   const start = async () => {
+    await Tone.start(); // iPhoneのために明示的に起動
     shuffledRef.current = shuffle(flatLetters);
     currentIndexRef.current = 0;
     setInput('');

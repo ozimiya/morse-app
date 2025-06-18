@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import * as Tone from 'tone'; // ←これを追加！
 import { WORDS } from '../data/words';
 import { useSettings } from '../context/SettingsContext';
 import { sanitize } from '../utils/sanitize';
@@ -40,7 +41,22 @@ const WordQuiz = () => {
     }
   }, [lengthFilter, filteredWords]);
 
+  useEffect(() => {
+  const handler = () => {
+    if (Tone.context.state !== 'running') {
+      Tone.start();
+    }
+  };
+
+  document.body.addEventListener('click', handler, { once: true });
+
+  return () => {
+    document.body.removeEventListener('click', handler);
+  };
+}, []);
+
   const handleStart = async () => {
+    await Tone.start();
     setIsStarted(true);
     setCorrectCount(0);
     await start();
