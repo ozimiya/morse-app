@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 0.5rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .round-button {
