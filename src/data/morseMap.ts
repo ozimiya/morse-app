@@ -59,6 +59,8 @@ export const MORSE_CODE_MAP: Record<string, string> = {
     'ー': '・－－・－',
     '゛': '・・',
     '゜': '・・－－・',
+    'ヰ': '・－・・－',
+    'ヱ': '・－－・・',
   };
 
 

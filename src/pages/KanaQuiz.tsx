@@ -17,12 +17,13 @@ function shuffle<T>(array: T[]): T[] {
   return copy;
 }
 
-const ROW_LABELS = ['ア', 'カ', 'サ', 'タ', 'ナ', 'ハ', 'マ', 'ヤ', 'ラ', 'ワ', '記号'];
+const ROW_LABELS = ['ア', 'カ', 'サ', 'タ', 'ナ', 'ハ', 'マ', 'ヤ', 'ラ', 'ワ', '特殊'];
+const SPECIALS = ['ー', '゛', '゜', 'ヰ', 'ヱ'];
+const isSpecial = (char: string) => SPECIALS.includes(char);
 
 const KanaQuiz = () => {
   const [input, setInput] = useState('');
   const [isStarted, setIsStarted] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
   const [justFinished, setJustFinished] = useState(false);
   const [display, setDisplay] = useState('?');
   const [answer, setAnswer] = useState('');
@@ -79,7 +80,6 @@ const KanaQuiz = () => {
     shuffledRef.current = shuffle(pool);
     currentIndexRef.current = 0;
     setInput('');
-    setIsFinished(false);
     setJustFinished(false);
     setIsStarted(true);
     setDisplay('?');
@@ -89,7 +89,6 @@ const KanaQuiz = () => {
   const nextQuestion = async () => {
     if (currentIndexRef.current >= shuffledRef.current.length) {
       setIsStarted(false);
-      setIsFinished(true);
       setJustFinished(true);
       setDisplay('完遂セリ');
 
@@ -115,13 +114,12 @@ const KanaQuiz = () => {
       setTimeout(() => {
         if (wasFinal) {
           setIsStarted(false);
-          setIsFinished(true);
           setJustFinished(true);
           setDisplay('完遂セリ');
 
           setTimeout(() => {
             setJustFinished(false);
-          }, 1500);
+          }, 2000);
         } else {
           nextQuestion();
         }
@@ -178,18 +176,34 @@ const KanaQuiz = () => {
           {isStarted && <div className="question-display">{display}</div>}
 
           {isStarted && (
-            <input
-              type="text"
-              placeholder="入力セヨ"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="text-input"
-            />
+            isSpecial(answer) ? (
+              <div className="symbol-button-row">
+                {SPECIALS.map((symbol) => (
+                  <button
+                    key={symbol}
+                    className="round-button"
+                    onClick={() => check(symbol)}
+                  >
+                    {symbol}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <input
+                type="text"
+                placeholder="入力セヨ"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="text-input"
+              />
+            )
           )}
 
           <div className="button-group">
             {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
-            {isStarted && (<button onClick={() => check(input)} className="button-primary">決定</button>)}
+            {isStarted && !isSpecial(answer) && (
+              <button onClick={() => check(input)} className="button-primary">決定</button>
+            )}
           </div>
         </>
       )}
