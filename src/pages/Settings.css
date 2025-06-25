@@ -1,0 +1,28 @@
+.settings-container {
+    padding: 1.5rem;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.settings-section {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.settings-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.settings-section input[type="range"] {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.settings-section span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}

@@ -8,6 +8,11 @@ import { useMorseQuiz } from '../hooks/useMorseQuiz';
 import '../styles/components.css';
 import './WordQuiz.css';
 
+// 見た目の文字数をカウント（NFC正規化で濁点・半濁点を結合）
+const countGraphemes = (str: string): number => {
+  return [...str.normalize('NFC')].length;
+};
+
 function shuffle<T>(array: T[]): T[] {
   const copy = [...array];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -28,15 +33,14 @@ function pickRandomWithRepeat<T>(list: T[], count: number): T[] {
 
 const WordQuiz = () => {
   const { playbackSpeed, lengthFilter, setLengthFilter } = useSettings();
-
   const [input, setInput] = useState('');
   const [feedback, setFeedback] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [justFinished, setJustFinished] = useState(false);
-  const [repeatCount, setRepeatCount] = useState(1);
+  const [repeatCount, setRepeatCount] = useState(10);
 
   const filteredWords = lengthFilter > 0
-    ? WORDS.filter((w) => w.length === lengthFilter)
+    ? WORDS.filter((w) => countGraphemes(w) === lengthFilter)
     : WORDS;
 
   const repeatedWords = repeatCount <= filteredWords.length
@@ -121,7 +125,7 @@ const WordQuiz = () => {
               value={repeatCount}
               onChange={(e) => setRepeatCount(Number(e.target.value))}
             >
-              {[...Array(10)].map((_, i) => (
+              {[...Array(20)].map((_, i) => (
                 <option key={i + 1} value={i + 1}>{i + 1}</option>
               ))}
             </select>

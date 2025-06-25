@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <div style={{ paddingTop: '4rem' }}>
+      <div>
         <Routes>
           <Route path="/" element={<KanaQuiz />} />
           <Route path="/words" element={<WordQuiz />} />

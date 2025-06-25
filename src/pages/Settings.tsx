@@ -1,9 +1,10 @@
 import { useSettings } from '../context/SettingsContext';
 import { useNavigate } from 'react-router-dom';
+import '../styles/components.css';
+import './Settings.css';
 
 const Settings = () => {
   const {
-    lengthFilter,
     playbackSpeed,
     setPlaybackSpeed,
   } = useSettings();
@@ -11,24 +12,23 @@ const Settings = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <div style={{ marginBottom: '1rem' }}>
-        <label>
-          再生速度：
-          <input
-            type="range"
-            min={7}
-            max={20}
-            step={1}
-            value={playbackSpeed}
-            onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
-          />
-          <span>{playbackSpeed} WPM</span>
-        </label>
+    <div className="settings-container">
+      <div className="settings-section">
+        <label htmlFor="speed">再生速度：</label>
+        <input
+          id="speed"
+          type="range"
+          min={7}
+          max={20}
+          step={1}
+          value={playbackSpeed}
+          onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
+        />
+        <span>{playbackSpeed} WPM</span>
       </div>
 
       <button onClick={() => navigate(-1)} className="button-primary">
-        戻ル
+        戻る
       </button>
     </div>
   );
