@@ -1,56 +1,79 @@
 .quiz-container {
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .question-display {
-    font-size: 3rem;
-    margin: 1.5rem 0;
-  }
-  
-  .morse-display {
-    color: #fff;
-    margin-bottom: 1rem;
-  }
-  
-  .answer-button {
-    padding: 0.5rem 1rem;
-    font-size: 1.1rem;
-  }
-  
-  .replay-button {
-    margin-top: 1rem;
-  }
-  
-  .text-input {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    width: 10rem;
-    text-align: center;
-    margin-top: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .feedback {
-    margin-top: 1rem;
-    font-size:3rem;
-    color: #fff;
-  }
-  
-  .text-input {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    width: 10rem;
-    text-align: center;
-    margin-top: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
-  
-  .question-display {
-    font-size: 3rem;
-    margin: 2rem 0;
-    color: white;
-  }
-  
+  padding: 2rem;
+  text-align: center;
+}
+
+.question-display {
+  font-size: 3rem;
+  margin: 1.5rem 0;
+}
+
+.morse-display {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.answer-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+
+.replay-button {
+  margin-top: 1rem;
+}
+
+.text-input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  margin-top: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.text-input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.question-display {
+  font-size: 3rem;
+  margin: 2rem 0;
+  color: white;
+}
+
+.length-select {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.length-select select {
+  border: 2px solid #7f8c8d;
+  border-radius: 9999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.length-select select:hover {
+  background-color: #ecf0f1;
+}
