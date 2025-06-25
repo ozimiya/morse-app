@@ -74,3 +74,40 @@
   gap: 1rem;
   margin: 1rem 0;
 }
+
+.repeat-select {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.repeat-select label {
+  font-weight: normal;
+}
+
+.repeat-select select {
+  border: 2px solid #7f8c8d;
+  border-radius: 9999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.repeat-select select:hover {
+  background-color: #ecf0f1;
+}
+
+.section-label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #ffffff;
+  font-weight: normal;
+}

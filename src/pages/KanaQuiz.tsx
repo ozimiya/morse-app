@@ -28,6 +28,7 @@ const KanaQuiz = () => {
   const [display, setDisplay] = useState('?');
   const [answer, setAnswer] = useState('');
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
+  const [repeatCount, setRepeatCount] = useState(1);
   const { playbackSpeed } = useSettings();
   const shuffledRef = useRef<string[]>([]);
   const currentIndexRef = useRef(0);
@@ -62,10 +63,8 @@ const KanaQuiz = () => {
   };
 
   const getFilteredLetters = (): string[] => {
-    const flatLetters = selectedRows.length === 0
-      ? LETTERS.flat()
-      : selectedRows.flatMap(index => LETTERS[index]);
-    return flatLetters.filter(c => c); // 空文字除去
+    const selected = selectedRows.length === 0 ? LETTERS : selectedRows.map(i => LETTERS[i]);
+    return selected.flat().filter(c => c).flatMap(letter => Array(repeatCount).fill(letter));
   };
 
   const start = async () => {
@@ -153,6 +152,7 @@ const KanaQuiz = () => {
         <>
           {!isStarted && (
             <>
+              <p className="section-label">出題行を選択</p>
               <div className="letter-row">
                 {ROW_LABELS.map((label, i) => (
                   <button
@@ -166,6 +166,19 @@ const KanaQuiz = () => {
                     {label}
                   </button>
                 ))}
+              </div>
+              <div className="repeat-select">
+                <label htmlFor="repeat">出題回数：</label>
+                <select
+                  id="repeat"
+                  value={repeatCount}
+                  onChange={(e) => setRepeatCount(Number(e.target.value))}
+                >
+                  {[...Array(10)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>{i + 1}</option>
+                  ))}
+                </select>
+                回
               </div>
               <button onClick={start} className="button-primary">開始</button>
             </>
