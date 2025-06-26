@@ -1,5 +1,5 @@
 .quiz-container {
-  padding: 7rem 1rem 2rem 1rem;
+  padding: 7rem 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -66,9 +66,11 @@
 
 .button-group {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 22rem;
+  padding: 0;
   margin-top: 1.5rem;
 }
 
@@ -108,4 +110,21 @@
 
 .question-display+.button-primary {
   margin-top: 2rem;
+}
+
+.button-group {
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 7rem;
+}
+
+.button-primary,
+.button-secondary {
+  min-width: 8rem;
+  flex-shrink: 1;
 }
