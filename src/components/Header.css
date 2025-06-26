@@ -1,29 +1,44 @@
 .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #006064;
-    color: white;
-    padding: 0.5rem 1rem;
-    z-index: 1000;
-  }
-  
-  .app-header ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .app-header a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .app-header a:hover {
-    text-decoration: underline;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #006064;
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+}
+
+.app-header ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #fffd9f;
+}
