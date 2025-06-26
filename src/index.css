@@ -10,10 +10,10 @@ body {
 
 body {
   min-height: 100vh;
-  background-color: #00acc1;
+  background-color: #546c5b;
   /* Morse Mania風の青 */
   font-family: Arial, sans-serif;
-  color: #ffffff;
+  color: #fdf9f2;
   display: flex;
   justify-content: center;
   align-items: center;

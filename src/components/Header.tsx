@@ -18,7 +18,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/settings" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-              設定
+              速度設定
             </NavLink>
           </li>
         </ul>

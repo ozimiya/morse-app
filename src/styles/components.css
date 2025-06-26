@@ -1,71 +1,75 @@
+.quiz-container {
+  padding: 7rem 1rem 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.button-primary,
+.button-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  width: 10rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
 .button-primary {
-  background-color: #aada88;
-  color: #ffffff;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  min-height: 3.5rem;
+  font-size: 1.1rem;
+  gap: 0.4em;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  background-color: #b74f42;
+  border: 2px solid #ffffff;
   border-radius: 9999px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  flex-shrink: 0;
 }
 
 .button-primary:hover {
-  background-color: #93c776;
+  background-color: #a7463a;
 }
 
 .button-secondary {
-  background-color: #ddd;
+  min-height: 3.5rem;
+  background-color: #f4eede;
   color: #333;
-  padding: 0.5rem 1.2rem;
-  border-radius: 8px;
-  border: none;
+  border: 2px solid #ffffff;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .button-secondary:hover {
-  background-color: #ccc;
+  background-color: #e8e0cf;
+}
+
+.icon-sound {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 .button-group {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
-}
-
-.button-primary {
-  background-color: #aed581;
-  color: #ffffff;
-  font-size: 1.2rem;
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.button-primary:hover {
-  background-color: #9ccc65;
-}
-
-.button-secondary {
-  background-color: #e0e0e0;
-  color: #333;
-  font-size: 1.2rem;
-  padding: 0.7rem 1.5rem;
-  border: none;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.button-secondary:hover {
-  background-color: #ccc;
-}
-
-.button-secondary:hover {
-  background-color: #d5d5d5;
 }
 
 .repeat-select {
@@ -90,7 +94,6 @@
   appearance: none;
   outline: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .repeat-select select:hover {
@@ -98,10 +101,11 @@
 }
 
 .question-display {
-  font-size: 3rem;
+  min-height: 6rem;
+  font-size: 4rem;
   color: #ffffff;
 }
 
 .question-display+.button-primary {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }

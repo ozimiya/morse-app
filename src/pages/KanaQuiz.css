@@ -1,20 +1,3 @@
-.quiz-container {
-  padding: 2rem;
-  text-align: center;
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* .question-display {
-  font-size: 3rem;
-  margin: 1.5rem 0;
-} */
-
 .morse-display {
   color: #fff;
   margin-bottom: 1rem;
@@ -24,7 +7,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin: 1rem 0;
 }
 
 .round-button {
@@ -36,7 +19,6 @@
   border: 2px solid #7f8c8d;
   margin: 0.3rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;

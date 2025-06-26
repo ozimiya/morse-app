@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
+import { AiOutlineSound } from "react-icons/ai";
+import { RiMedalFill } from "react-icons/ri";
+import { RxCross2 } from "react-icons/rx";
 import * as Tone from 'tone';
 import { LETTERS } from '../data/letters';
 import { playMorse } from '../utils/playMorse';
@@ -25,7 +28,7 @@ const KanaQuiz = () => {
   const [input, setInput] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [justFinished, setJustFinished] = useState(false);
-  const [display, setDisplay] = useState('?');
+  const [display, setDisplay] = useState<React.ReactNode>('?');
   const [answer, setAnswer] = useState('');
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [repeatCount, setRepeatCount] = useState(1);
@@ -107,7 +110,7 @@ const KanaQuiz = () => {
       currentIndexRef.current + 1 >= shuffledRef.current.length;
 
     if (isCorrect(input, answer)) {
-      setDisplay('💮');
+      setDisplay(<RiMedalFill color="#ffe666" size="5rem" />);
       currentIndexRef.current += 1;
 
       setTimeout(() => {
@@ -124,7 +127,7 @@ const KanaQuiz = () => {
         }
       }, 1500);
     } else {
-      setDisplay('❌');
+      setDisplay(<RxCross2 color="#fa6a58" size="5rem" />);
       setTimeout(() => {
         setDisplay('?');
         playMorse(answer, playbackSpeed);
@@ -187,7 +190,10 @@ const KanaQuiz = () => {
           {isStarted && (
             <>
               <div className="question-display">{display}</div>
-              <button onClick={handleReplay} className="button-primary">再打電</button>
+              <button onClick={handleReplay} className="button-primary">
+                <AiOutlineSound className="icon-sound" size="2rem" />
+                もう１回
+              </button>
 
               {isSpecial(answer) ? (
                 <div className="symbol-button-row">
@@ -212,7 +218,7 @@ const KanaQuiz = () => {
               )}
 
               <div className="button-group">
-                <button onClick={showAnswer} className="button-secondary">答え</button>
+                <button onClick={showAnswer} className="button-secondary">わからん</button>
                 {!isSpecial(answer) && (
                   <button onClick={() => check(input)} className="button-primary">決定</button>
                 )}

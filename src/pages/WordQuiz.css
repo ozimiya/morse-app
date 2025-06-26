@@ -1,36 +1,5 @@
-.quiz-container {
-  padding: 2rem;
-  text-align: center;
-}
-
-.morse-display {
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.answer-button {
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
-}
-
 .replay-button {
   margin-top: 1rem;
-}
-
-.text-input {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  width: 10rem;
-  text-align: center;
-  margin-top: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.feedback {
-  margin-top: 1rem;
-  font-size: 3rem;
-  color: #fff;
 }
 
 .text-input {
@@ -41,6 +10,14 @@
   margin-top: 1.5rem;
   border-radius: 8px;
   border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: #ffffff;
 }
 
 .length-select {
@@ -49,6 +26,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  color: #fdf9f2;
 }
 
 .length-select select {
@@ -57,10 +35,10 @@
   padding: 0.4rem 1.2rem;
   font-size: 1rem;
   background-color: #ffffff;
+  color: #333;
   appearance: none;
   outline: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .length-select select:hover {

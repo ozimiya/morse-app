@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #006064;
+  background-color: #e3c978;
   color: #ffffff;
   padding: 0.5rem 1rem;
   z-index: 1000;
@@ -18,7 +18,7 @@
 }
 
 .app-header a {
-  color: #ffffff;
+  color: #965353;
   text-decoration: none;
   font-weight: bold;
 }
@@ -38,7 +38,7 @@
   padding: 0.3rem 0.5rem;
 }
 
-.nav-link.active,
-.nav-link:hover {
-  color: #fffd9f;
+.app-header li a.active {
+  border-bottom: 2px solid #ffface;
+  padding-bottom: 2px;
 }

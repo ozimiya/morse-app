@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { AiOutlineSound } from "react-icons/ai";
 import * as Tone from 'tone';
 import { WORDS } from '../data/words';
 import { useSettings } from '../context/SettingsContext';
@@ -141,7 +142,10 @@ const WordQuiz = () => {
 
       {isStarted && (
         <>
-          <button onClick={handleReplay} className="button-primary">再打電</button>
+          <button onClick={handleReplay} className="button-primary">
+            <AiOutlineSound className="icon-sound" size="2rem" />
+            もう１回
+          </button>
 
           <input
             type="text"

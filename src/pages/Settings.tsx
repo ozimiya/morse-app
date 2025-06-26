@@ -14,7 +14,10 @@ const Settings = () => {
   return (
     <div className="settings-container">
       <div className="settings-section">
-        <label htmlFor="speed">再生速度：</label>
+        <div className="wpm-wrap">
+          <label htmlFor="speed">再生速度：</label>
+          <span>{playbackSpeed} WPM</span>
+        </div>
         <input
           id="speed"
           type="range"
@@ -24,7 +27,6 @@ const Settings = () => {
           value={playbackSpeed}
           onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
         />
-        <span>{playbackSpeed} WPM</span>
       </div>
 
       <button onClick={() => navigate(-1)} className="button-primary">

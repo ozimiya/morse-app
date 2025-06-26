@@ -1,5 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import { playMorse, stopMorse } from '../utils/playMorse';
+import { RiMedalFill } from "react-icons/ri";
+import { RxCross2 } from "react-icons/rx";
 
 type Options = {
   getWpm?: () => number;
@@ -9,7 +12,7 @@ type Options = {
 
 export function useMorseQuiz(items: string[], options?: Options) {
   const [answer, setAnswer] = useState('');
-  const [display, setDisplay] = useState('?');
+  const [display, setDisplay] = useState<React.ReactNode>('?');
   const [index, setIndex] = useState(0);
 
   const getWpm = options?.getWpm ?? (() => 12);
@@ -36,12 +39,12 @@ export function useMorseQuiz(items: string[], options?: Options) {
   const check = async (input: string) => {
     stopMorse();
     if (isCorrect(input, answer)) {
-      setDisplay('💮');
+      setDisplay(<RiMedalFill color="#ffe666" size="5rem" />);
       setTimeout(() => {
         nextQuestion();
       }, 1500);
     } else {
-      setDisplay('❌');
+      setDisplay(<RxCross2 color="#fa6a58" size="5rem" />);
       setTimeout(() => {
         setDisplay('?');
         playMorse(answer, getWpm());
