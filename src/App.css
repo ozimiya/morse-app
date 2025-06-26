@@ -3,7 +3,7 @@
   text-align: center;
   background-color: #00acc1;
   min-height: 100vh;
-  color: white;
+  color: #ffffff;
   font-family: 'Arial', sans-serif;
 }
 
@@ -23,7 +23,7 @@
   padding: 0.5em 1.2em;
   margin: 0.5rem;
   background-color: #007c91;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -50,7 +50,7 @@
   border: none;
   border-radius: 4px;
   background-color: #004d5c;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 

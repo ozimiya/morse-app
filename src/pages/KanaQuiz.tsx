@@ -184,40 +184,41 @@ const KanaQuiz = () => {
             </>
           )}
 
-          {isStarted && <button onClick={handleReplay} className="button-primary">再打電</button>}
-
-          {isStarted && <div className="question-display">{display}</div>}
-
           {isStarted && (
-            isSpecial(answer) ? (
-              <div className="symbol-button-row">
-                {SPECIALS.map((symbol) => (
-                  <button
-                    key={symbol}
-                    className="round-button"
-                    onClick={() => check(symbol)}
-                  >
-                    {symbol}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <input
-                type="text"
-                placeholder="入力セヨ"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                className="text-input"
-              />
-            )
-          )}
+            <>
+              <div className="question-display">{display}</div>
+              <button onClick={handleReplay} className="button-primary">再打電</button>
 
-          <div className="button-group">
-            {isStarted && (<button onClick={showAnswer} className="button-secondary">答え</button>)}
-            {isStarted && !isSpecial(answer) && (
-              <button onClick={() => check(input)} className="button-primary">決定</button>
-            )}
-          </div>
+              {isSpecial(answer) ? (
+                <div className="symbol-button-row">
+                  {SPECIALS.map((symbol) => (
+                    <button
+                      key={symbol}
+                      className="round-button"
+                      onClick={() => check(symbol)}
+                    >
+                      {symbol}
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  placeholder="入力セヨ"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  className="text-input"
+                />
+              )}
+
+              <div className="button-group">
+                <button onClick={showAnswer} className="button-secondary">答え</button>
+                {!isSpecial(answer) && (
+                  <button onClick={() => check(input)} className="button-primary">決定</button>
+                )}
+              </div>
+            </>
+          )}
         </>
       )}
     </div>

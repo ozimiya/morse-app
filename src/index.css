@@ -1,6 +1,7 @@
 /* index.css（シンプルな初期化 + 自分のスタイル） */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -9,9 +10,10 @@ html, body {
 
 body {
   min-height: 100vh;
-  background-color: #00acc1; /* Morse Mania風の青 */
+  background-color: #00acc1;
+  /* Morse Mania風の青 */
   font-family: Arial, sans-serif;
-  color: white;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;

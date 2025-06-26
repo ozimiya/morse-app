@@ -1,6 +1,6 @@
 .button-primary {
   background-color: #aada88;
-  color: white;
+  color: #ffffff;
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   border: none;
@@ -36,7 +36,7 @@
 
 .button-primary {
   background-color: #aed581;
-  color: white;
+  color: #ffffff;
   font-size: 1.2rem;
   padding: 0.7rem 1.5rem;
   border: none;
@@ -95,4 +95,13 @@
 
 .repeat-select select:hover {
   background-color: #ecf0f1;
+}
+
+.question-display {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.question-display+.button-primary {
+  margin-top: 1.5rem;
 }

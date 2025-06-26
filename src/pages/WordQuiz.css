@@ -3,11 +3,6 @@
   text-align: center;
 }
 
-.question-display {
-  font-size: 3rem;
-  margin: 1.5rem 0;
-}
-
 .morse-display {
   color: #fff;
   margin-bottom: 1rem;
@@ -43,15 +38,9 @@
   padding: 0.5rem;
   width: 10rem;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   border-radius: 8px;
   border: 1px solid #ccc;
-}
-
-.question-display {
-  font-size: 3rem;
-  margin: 2rem 0;
-  color: white;
 }
 
 .length-select {
