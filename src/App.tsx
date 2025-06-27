@@ -4,6 +4,15 @@ import WordQuiz from './pages/WordQuiz';
 import Settings from './pages/Settings';
 import Header from './components/Header';
 
+const setVH = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+
+// 初回とリサイズ時に反映
+window.addEventListener('resize', setVH);
+setVH();
+
 function App() {
   return (
     <>

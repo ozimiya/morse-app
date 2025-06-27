@@ -1,5 +1,15 @@
+:root {
+  --vh: 1vh;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --vh: 1vh;
+  }
+}
+
 .quiz-container {
-  height: 100vh;
+  height: 100dvh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
