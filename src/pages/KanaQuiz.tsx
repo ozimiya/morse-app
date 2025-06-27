@@ -77,7 +77,7 @@ const KanaQuiz = () => {
     const pool = getFilteredLetters();
 
     if (pool.length === 0) {
-      setDisplay('完遂セリ');
+      setDisplay('💮');
       return;
     }
 
@@ -94,7 +94,7 @@ const KanaQuiz = () => {
     if (currentIndexRef.current >= shuffledRef.current.length) {
       setIsStarted(false);
       setJustFinished(true);
-      setDisplay('完遂セリ');
+      setDisplay('💮');
 
       setTimeout(() => {
         setJustFinished(false);
@@ -119,7 +119,7 @@ const KanaQuiz = () => {
         if (wasFinal) {
           setIsStarted(false);
           setJustFinished(true);
-          setDisplay('完遂セリ');
+          setDisplay('💮');
 
           setTimeout(() => {
             setJustFinished(false);
@@ -152,7 +152,9 @@ const KanaQuiz = () => {
   return (
     <div className="quiz-container">
       {justFinished ? (
-        <div className="question-display">{display}</div>
+        <div className={`question-display ${display === '💮' ? 'celebration' : ''}`}>
+          {display}
+        </div>
       ) : (
         <>
           {!isStarted && (

@@ -64,7 +64,7 @@ const WordQuiz = () => {
     onFinish: () => {
       setIsStarted(false);
       setJustFinished(true);
-      setDisplay('完遂セリ');
+      setDisplay('💮');
       setTimeout(() => {
         setJustFinished(false);
       }, 2000);
@@ -144,7 +144,9 @@ const WordQuiz = () => {
       )}
 
       {(isStarted || justFinished) && (
-        <div className="question-display">{display}</div>
+        <div className={`question-display ${display === '💮' ? 'celebration' : ''}`}>
+          {display}
+        </div>
       )}
 
       {isStarted && (

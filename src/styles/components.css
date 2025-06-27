@@ -126,3 +126,14 @@
 .question-display+.button-primary {
   margin-top: 2rem;
 }
+
+.question-display {
+  min-height: 6rem;
+  font-size: 4rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.question-display.celebration {
+  font-size: 10rem;
+}
