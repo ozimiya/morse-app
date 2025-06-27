@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --vh: 1vh;
 }
 
@@ -6,10 +6,10 @@
   :root {
     --vh: 1vh;
   }
-}
+} */
 
 .quiz-container {
-  height: 100dvh;
+  /* height: calc(var(--vh, 1vh) * 100); */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
