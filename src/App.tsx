@@ -1,4 +1,4 @@
-// import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import KanaQuiz from './pages/KanaQuiz';
 import WordQuiz from './pages/WordQuiz';
@@ -7,26 +7,26 @@ import Header from './components/Header';
 
 function App() {
 
-  const setVH = () => {
-    const vh = (window.visualViewport?.height || window.innerHeight) * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  };
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
 
-  window.addEventListener('resize', setVH);
-  window.visualViewport?.addEventListener('resize', setVH); // ← 追加！！
-  setVH();
+    const handleFocusOut = () => {
+      setTimeout(setVH, 100);
+    };
 
-  // ← 高さの調整処理（dev環境でも安定させる）
-  // useLayoutEffect(() => {
-  //   const setVH = () => {
-  //     const vh = window.innerHeight * 0.01;
-  //     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  //   };
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('focusout', handleFocusOut);
 
-  //   requestAnimationFrame(setVH); // ← dev対策：描画直前に実行
-  //   window.addEventListener('resize', setVH);
-  //   return () => window.removeEventListener('resize', setVH);
-  // }, []);
+    return () => {
+      window.removeEventListener('resize', setVH);
+      window.removeEventListener('focusout', handleFocusOut);
+    };
+  }, []);
+
 
   return (
     <>
