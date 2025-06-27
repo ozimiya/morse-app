@@ -7,6 +7,7 @@ import { LETTERS } from '../data/letters';
 import { playMorse } from '../utils/playMorse';
 import { sanitize } from '../utils/sanitize';
 import { hiraToKata } from '../utils/kana';
+import { stopMorse } from '../utils/playMorse';
 import { useSettings } from '../context/SettingsContext';
 import '../styles/components.css';
 import './KanaQuiz.css';
@@ -47,6 +48,7 @@ const KanaQuiz = () => {
 
     return () => {
       document.body.removeEventListener('click', handler);
+      stopMorse();
     };
   }, []);
 

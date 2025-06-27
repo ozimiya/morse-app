@@ -2,7 +2,6 @@
   padding: 2rem;
   text-align: center;
   background-color: #00acc1;
-  /* min-height: 100vh; */
   color: #ffffff;
   font-family: 'Arial', sans-serif;
 }
@@ -29,11 +28,6 @@
   cursor: pointer;
 }
 
-.start-button:hover,
-.repeat-button:hover {
-  background-color: #005f6b;
-}
-
 .question {
   font-size: 4rem;
   margin: 2rem 0;
@@ -52,10 +46,6 @@
   background-color: #004d5c;
   color: #ffffff;
   cursor: pointer;
-}
-
-.letter-button:hover {
-  background-color: #003640;
 }
 
 .feedback {

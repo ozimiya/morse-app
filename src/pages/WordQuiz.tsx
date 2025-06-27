@@ -5,6 +5,7 @@ import { WORDS } from '../data/words';
 import { useSettings } from '../context/SettingsContext';
 import { sanitize } from '../utils/sanitize';
 import { hiraToKata } from '../utils/kana';
+import { stopMorse } from '../utils/playMorse';
 import { useMorseQuiz } from '../hooks/useMorseQuiz';
 import '../styles/components.css';
 import './WordQuiz.css';
@@ -69,6 +70,12 @@ const WordQuiz = () => {
       }, 2000);
     },
   });
+
+  useEffect(() => {
+    return () => {
+      stopMorse();
+    }
+  }, []);
 
   useEffect(() => {
     if (filteredWords.length === 0) {

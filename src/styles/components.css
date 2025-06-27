@@ -1,13 +1,23 @@
 .quiz-container {
-  padding: 7rem 0 0 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  /* min-height: 100vh; */
   justify-content: flex-start;
   gap: 1.5rem;
+}
+
+.text-input {
+  width: 14rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333;
 }
 
 .button-primary,

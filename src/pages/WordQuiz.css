@@ -2,18 +2,6 @@
   margin-top: 1rem;
 }
 
-.text-input {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  width: 10rem;
-  text-align: center;
-  margin-top: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #ffffff;
-  color: #333;
-}
-
 .feedback {
   margin-top: 1rem;
   font-size: 3rem;
