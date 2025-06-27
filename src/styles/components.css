@@ -1,6 +1,7 @@
 .quiz-container {
   /* min-height: 100vh; */
   height: calc(var(--vh) * 100);
+  padding-top: 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
