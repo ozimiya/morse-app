@@ -1,9 +1,7 @@
 .quiz-container {
   min-height: 100vh;
   padding-top: 10rem;
-  /* 画面中央〜下寄りに寄せたい位置 */
   padding-bottom: 5rem;
-  /* キーボードやタブバーがかぶらないように余裕 */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
