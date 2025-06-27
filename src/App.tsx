@@ -1,19 +1,23 @@
+import { useLayoutEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import KanaQuiz from './pages/KanaQuiz';
 import WordQuiz from './pages/WordQuiz';
 import Settings from './pages/Settings';
 import Header from './components/Header';
 
-// const setVH = () => {
-//   const vh = window.innerHeight * 0.01;
-//   document.documentElement.style.setProperty('--vh', `${vh}px`);
-// };
-
-// // 初回とリサイズ時に反映
-// window.addEventListener('resize', setVH);
-// setVH();
-
 function App() {
+  // ← 高さの調整処理（dev環境でも安定させる）
+  // useLayoutEffect(() => {
+  //   const setVH = () => {
+  //     const vh = window.innerHeight * 0.01;
+  //     document.documentElement.style.setProperty('--vh', `${vh}px`);
+  //   };
+
+  //   requestAnimationFrame(setVH); // ← dev対策：描画直前に実行
+  //   window.addEventListener('resize', setVH);
+  //   return () => window.removeEventListener('resize', setVH);
+  // }, []);
+
   return (
     <>
       <Header />
