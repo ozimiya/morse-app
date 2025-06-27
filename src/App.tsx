@@ -17,7 +17,8 @@ function App() {
       setTimeout(setVH, 100);
     };
 
-    setVH();
+    setTimeout(setVH, 100);
+
     window.addEventListener('resize', setVH);
     window.addEventListener('focusout', handleFocusOut);
 
@@ -26,7 +27,6 @@ function App() {
       window.removeEventListener('focusout', handleFocusOut);
     };
   }, []);
-
 
   return (
     <>
