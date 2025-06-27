@@ -1,15 +1,15 @@
 .quiz-container {
-  /* min-height: 100vh; */
-  height: calc(var(--vh, 1vh) * 100);
-  padding-top: 2rem;
+  min-height: 100vh;
+  padding-top: 6rem;
+  /* 画面中央〜下寄りに寄せたい位置 */
+  padding-bottom: 5rem;
+  /* キーボードやタブバーがかぶらないように余裕 */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   overflow-y: auto;
-  gap: 1.5rem;
-  padding-bottom: 4rem;
-  justify-content: center;
 }
 
 .text-input {
