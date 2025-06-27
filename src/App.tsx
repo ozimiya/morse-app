@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import KanaQuiz from './pages/KanaQuiz';
 import WordQuiz from './pages/WordQuiz';
