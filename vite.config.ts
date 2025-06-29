@@ -12,8 +12,8 @@ export default defineConfig({
         name: '和文モールス練習',
         short_name: '和文モールス',
         description: '和文モールス信号を聞いて文字を答える、聞き取り練習用の無料Webアプリ',
-        theme_color: '#e3c978',
-        background_color: '#2c2c2c',
+        theme_color: '#2c2c2c',
+        background_color: '#546c5b',
         display: 'standalone',
         icons: [
           {
