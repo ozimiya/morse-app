@@ -1,6 +1,4 @@
 .quiz-container {
-  min-height: 100vh;
-  padding-top: 10rem;
   padding-bottom: 5rem;
   box-sizing: border-box;
   display: flex;
