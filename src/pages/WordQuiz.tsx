@@ -165,7 +165,7 @@ const WordQuiz = () => {
           />
 
           <div className="button-group">
-            <button onClick={handleShowAnswer} className="button-secondary">答え</button>
+            <button onClick={handleShowAnswer} className="button-secondary">わからん</button>
             <button onClick={handleCheck} className="button-primary">決定</button>
           </div>
         </>
