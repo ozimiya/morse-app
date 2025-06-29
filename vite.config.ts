@@ -10,10 +10,10 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'pwa-icon-192.png', 'pwa-icon-512.png'],
       manifest: {
         name: '和文モールス練習',
-        short_name: 'モールス練習',
-        description: '和文モールス信号リスニング練習アプリ',
-        theme_color: '#007c91',
-        background_color: '#ffffff',
+        short_name: '和文モールス',
+        description: '和文モールス信号を聞いて文字を答える、聞き取り練習用の無料Webアプリ',
+        theme_color: '#e3c978',
+        background_color: '#2c2c2c',
         display: 'standalone',
         icons: [
           {

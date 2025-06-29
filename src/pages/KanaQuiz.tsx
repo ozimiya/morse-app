@@ -221,7 +221,7 @@ const KanaQuiz = () => {
                 />
               )}
 
-              <div className="button-group">
+              <div className={`button-group ${isSpecial(answer) ? 'symbol-only' : ''}`}>
                 <button onClick={showAnswer} className="button-secondary">わからん</button>
                 {!isSpecial(answer) && (
                   <button onClick={() => check(input)} className="button-primary">決定</button>

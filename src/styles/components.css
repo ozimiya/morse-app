@@ -1,6 +1,6 @@
 .quiz-container {
   min-height: 100vh;
-  padding-top: 10rem;
+  /* padding-top: 6rem; */
   padding-bottom: 5rem;
   box-sizing: border-box;
   display: flex;
@@ -11,8 +11,8 @@
 }
 
 .text-input {
-  width: 14rem;
-  margin-top: 1.5rem;
+  width: 10rem;
+  margin-top: 3rem;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   text-align: center;
@@ -74,12 +74,19 @@
   width: 100%;
   max-width: 22rem;
   padding: 0;
-  margin-top: 1.5rem;
+  margin-top: 3rem;
 }
 
 .button-group button {
   flex: 1;
   min-width: 7rem;
+}
+
+.button-group.symbol-only button {
+  flex: unset;
+  width: fit-content;
+  min-width: 10rem;
+  margin: 0 auto;
 }
 
 .icon-sound {
