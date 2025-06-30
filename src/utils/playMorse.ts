@@ -37,26 +37,22 @@ export const playMorse = async (text: string, playbackSpeedWpm = 12) => {
 
   let time = 0;
 
-  for (const rawChar of text) {
-    const normalized = rawChar.normalize('NFD');
+  for (const char of Array.from(text.normalize('NFC'))) {
+    const code = MORSE_CODE_MAP[char];
+    if (!code) continue;
 
-    for (const char of normalized) {
-      const code = MORSE_CODE_MAP[char];
-      if (!code) continue;
-
-      for (const mark of code) {
-        if (mark === '・') {
-          synth.triggerAttackRelease('C4', dot, `+${time}`);
-          time += dot + space_between_elements;
-        } else if (mark === '－') {
-          synth.triggerAttackRelease('C4', dash, `+${time}`);
-          time += dash + space_between_elements;
-        } else {
-          time += space_between_elements;
-        }
+    for (const mark of code) {
+      if (mark === '・') {
+        synth.triggerAttackRelease('C4', dot, `+${time}`);
+        time += dot + space_between_elements;
+      } else if (mark === '－') {
+        synth.triggerAttackRelease('C4', dash, `+${time}`);
+        time += dash + space_between_elements;
+      } else {
+        time += space_between_elements;
       }
-
-      time += space_between_letters;
     }
+
+    time += space_between_letters;
   }
 };
