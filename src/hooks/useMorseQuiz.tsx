@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { playMorse, stopMorse } from '../utils/playMorse';
 import { RiMedalFill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
@@ -11,28 +10,41 @@ type Options = {
 };
 
 export function useMorseQuiz(items: string[], options?: Options) {
+  const itemsRef = useRef<string[]>(items);
+  itemsRef.current = items;
+
+  const indexRef = useRef(0); // ← indexをuseRefに変更
   const [answer, setAnswer] = useState('');
   const [display, setDisplay] = useState<React.ReactNode>('?');
-  const [index, setIndex] = useState(0);
 
   const getWpm = options?.getWpm ?? (() => 12);
   const isCorrect = options?.isCorrect ?? ((input, ans) => input === ans);
 
   const nextQuestion = async () => {
-    if (index >= items.length) {
+    const list = itemsRef.current;
+    const index = indexRef.current;
+
+    if (index >= list.length) {
       stopMorse();
       options?.onFinish?.();
       return;
     }
-    const next = items[index];
+
+    const next = list[index];
     setAnswer(next);
     setDisplay('?');
     await playMorse(next, getWpm());
-    setIndex(index + 1);
+
+    indexRef.current += 1;
   };
 
   const start = async () => {
-    setIndex(0);
+    const list = itemsRef.current;
+    if (list.length === 0) {
+      setDisplay('');
+      return;
+    }
+    indexRef.current = 0;
     await nextQuestion();
   };
 
