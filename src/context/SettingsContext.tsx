@@ -13,7 +13,7 @@ const SettingsContext = createContext<Settings | undefined>(undefined);
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   const [lengthFilter, setLengthFilter] = useState(0);
-  const [playbackSpeed, setPlaybackSpeed] = useState(11); // 1倍速
+  const [playbackSpeed, setPlaybackSpeed] = useState(11);
 
   return (
     //value={{ lengthFilter,..}}ここで設定した値を、アプリ全体に配る

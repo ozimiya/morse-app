@@ -12,7 +12,7 @@ export const stopMorse = () => {
   }
 };
 
-export const playMorse = async (text: string, playbackSpeedWpm = 12) => {
+export const playMorse = async (text: string, playbackSpeedWpm = 11) => {
   stopMorse(); // 前の音を止めてから再生
 
   await Tone.start();

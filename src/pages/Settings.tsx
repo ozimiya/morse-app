@@ -21,8 +21,8 @@ const Settings = () => {
         <input
           id="speed"
           type="range"
-          min={7}
-          max={20}
+          min={5}
+          max={30}
           step={1}
           value={playbackSpeed}
           onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
