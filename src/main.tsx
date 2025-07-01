@@ -9,6 +9,7 @@ import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
   onNeedRefresh() {
+    console.log('need refresh!!!!!!!');
     if (confirm('新しいバージョンがあります。ページを更新しますか？')) {
       if (typeof updateSW === 'function') {
         updateSW(true);
