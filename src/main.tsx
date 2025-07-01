@@ -10,7 +10,11 @@ import { registerSW } from 'virtual:pwa-register';
 const updateSW = registerSW({
   onNeedRefresh() {
     if (confirm('新しいバージョンがあります。ページを更新しますか？')) {
-      updateSW(true); // Service Workerを即座に有効化し、リロード
+      if (typeof updateSW === 'function') {
+        updateSW(true);
+      } else {
+        window.location.reload();
+      }
     }
   },
   onOfflineReady() {
