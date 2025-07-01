@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
+const version = import.meta.env.VITE_APP_VERSION;
+
 const Header = () => {
   return (
     <header className="app-header">
@@ -22,6 +24,7 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
+        <span className="version-badge">v{version}</span>
       </nav>
     </header>
   );
