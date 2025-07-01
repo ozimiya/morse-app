@@ -5,6 +5,19 @@ import App from './App.tsx';
 import './index.css';
 import { SettingsProvider } from './context/SettingsContext';
 
+import { registerSW } from 'virtual:pwa-register';
+
+registerSW({
+  onNeedRefresh() {
+    if (confirm('新しいバージョンがあります。ページを更新しますか？')) {
+      window.location.reload();
+    }
+  },
+  onOfflineReady() {
+    console.log('オフラインでも使用できます');
+  },
+});
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,4 +27,3 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
