@@ -53,7 +53,8 @@
   bottom: 0;
   right: 1rem;
   font-size: 1rem;
-  color: #965353;
+  /* color: #965353; */
+  color: red;
   padding: 0.2rem 0.8rem;
   padding-right: 1rem;
   border-radius: 9999px;
