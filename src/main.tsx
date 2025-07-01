@@ -7,14 +7,14 @@ import { SettingsProvider } from './context/SettingsContext';
 
 import { registerSW } from 'virtual:pwa-register';
 
-registerSW({
+const updateSW = registerSW({
   onNeedRefresh() {
     if (confirm('新しいバージョンがあります。ページを更新しますか？')) {
-      window.location.reload();
+      updateSW(true); // Service Workerを即座に有効化し、リロード
     }
   },
   onOfflineReady() {
-    console.log('オフラインでも使用できます');
+    console.log('オフラインでも使えます');
   },
 });
 
