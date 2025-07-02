@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './Header.css';
+import { APP_VERSION } from '../data/version';
 
-const version = import.meta.env.VITE_APP_VERSION;
+const version = APP_VERSION;
 
 const Header = () => {
   return (

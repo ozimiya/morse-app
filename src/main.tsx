@@ -8,6 +8,7 @@ import { SettingsProvider } from './context/SettingsContext';
 import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
+  immediate: true,
   onNeedRefresh() {
     if (confirm('新しいバージョンがあります。ページを更新しますか？')) {
       if (typeof updateSW === 'function') {
