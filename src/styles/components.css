@@ -21,6 +21,10 @@
   color: #333;
 }
 
+.text-input::placeholder {
+  font-size: 1.1rem;
+}
+
 .button-primary,
 .button-secondary {
   display: flex;
@@ -48,21 +52,6 @@
 
 .button-primary:hover {
   background-color: #a7463a;
-}
-
-.button-secondary {
-  min-height: 3.5rem;
-  background-color: #f4eede;
-  color: #333;
-  border: 2px solid #ffffff;
-  border-radius: 9999px;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.button-secondary:hover {
-  background-color: #e8e0cf;
 }
 
 .button-group {

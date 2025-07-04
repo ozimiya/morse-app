@@ -214,7 +214,7 @@ const KanaQuiz = () => {
               ) : (
                 <input
                   type="text"
-                  placeholder="入力セヨ"
+                  placeholder="聞こえた文字を入力"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   className="text-input"
@@ -222,7 +222,7 @@ const KanaQuiz = () => {
               )}
 
               <div className={`button-group ${isSpecial(answer) ? 'symbol-only' : ''}`}>
-                <button onClick={showAnswer} className="button-secondary">わからん</button>
+                <button onClick={showAnswer} className="button-primary">正解を表示</button>
                 {!isSpecial(answer) && (
                   <button onClick={() => check(input)} className="button-primary">決定</button>
                 )}

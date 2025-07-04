@@ -170,14 +170,14 @@ const WordQuiz = () => {
 
           <input
             type="text"
-            placeholder="入力セヨ"
+            placeholder="聞こえた文字を入力"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="text-input"
           />
 
           <div className="button-group">
-            <button onClick={handleShowAnswer} className="button-secondary">わからん</button>
+            <button onClick={handleShowAnswer} className="button-primary">正解を表示</button>
             <button onClick={handleCheck} className="button-primary">決定</button>
           </div>
         </>
